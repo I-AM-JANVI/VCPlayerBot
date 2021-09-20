@@ -38,11 +38,11 @@ async def add_to_playlist(_, message: Message):
     yturl=""
     ysearch=""
     if message.reply_to_message and message.reply_to_message.video:
-        msg = await message.reply_text("⚡️ **Checking Telegram Media...**")
+        msg = await message.reply_text("🔄 **Checking Telegram Media...**")
         type='video'
         m_video = message.reply_to_message.video       
     elif message.reply_to_message and message.reply_to_message.document:
-        msg = await message.reply_text("⚡️ **Checking Telegram Media...**")
+        msg = await message.reply_text("🔄 **Checking Telegram Media...**")
         m_video = message.reply_to_message.document
         type='video'
         if not "video" in m_video.mime_type:
@@ -78,11 +78,11 @@ async def add_to_playlist(_, message: Message):
         await msg.edit("Media added to playlist")
     if type=="youtube" or type=="query":
         if type=="youtube":
-            msg = await message.reply_text("⚡️ **Fetching Video From YouTube...**")
+            msg = await message.reply_text("🔄 **Fetching Video From YouTube...**")
             url=yturl
         elif type=="query":
             try:
-                msg = await message.reply_text("⚡️ **Fetching Video From YouTube...**")
+                msg = await message.reply_text("🔄 **Fetching Video From YouTube...**")
                 ytquery=ysearch
                 results = YoutubeSearch(ytquery, max_results=1).to_dict()
                 url = f"https://youtube.com{results[0]['url_suffix']}"
@@ -225,9 +225,9 @@ allcmd = ["play", "player", f"play@{Config.BOT_USERNAME}", f"player@{Config.BOT_
 async def not_chat(_, m: Message):
     buttons = [
         [
-            InlineKeyboardButton('⚡️Make Own Bot', url='https://github.com/subinps/VCPlayerBot'),
-            InlineKeyboardButton('🧩 Join Here', url='https://t.me/subin_works'),
+            InlineKeyboardButton('♻️Make Own Bot', url='https://github.com/I-AM-JANVI/VCPlayerBot.git'),
+            InlineKeyboardButton('🧩 Join Here', url='https://t.me/JANZUZ'),
         ]
         ]
-    await m.reply("<b>You can't use this bot in this group, for that you have to make your own bot from the [SOURCE CODE](https://github.com/subinps/VCPlayerBot) below.</b>", disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(buttons))
+    await m.reply("<b>You can't use this bot in this group, for that you have to make your own bot from the [SOURCE CODE](https://github.com/I-AM-JANVI/VCPlayerBot.git) below.</b>", disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(buttons))
 
